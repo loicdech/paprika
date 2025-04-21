@@ -2,16 +2,109 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mon site perso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mes Recettes</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #2e3a59;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      transition: width 0.3s ease;
+    }
+
+    .sidebar.collapsed {
+      width: 60px;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .sidebar button.toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+
+    .sidebar nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0.5rem 0;
+      display: block;
+    }
+
+    .main {
+      flex: 1;
+      padding: 2rem;
+      background-color: #f4f4f4;
+    }
+
+    .main h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .buttons a {
+      padding: 1rem 2rem;
+      background-color: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .buttons a:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Bienvenue sur mon site !</h1>
-    <p>Ceci est un site perso hébergé gratuitement grâce à GitHub Pages.</p>
-    <button onclick="saluer()">Clique ici</button>
+
+  <div class="sidebar" id="sidebar">
+    <button class="toggle" onclick="toggleSidebar()">☰</button>
+    <h2>Menu</h2>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#">Recettes</a>
+      <a href="#">Ajouter</a>
+      <a href="#">Liste de courses</a>
+    </nav>
   </div>
-  <script src="script.js"></script>
+
+  <div class="main">
+    <h1>Bienvenue sur mon site de recettes</h1>
+    <div class="buttons">
+      <a href="#">Voir les recettes</a>
+      <a href="#">Ajouter une recette</a>
+      <a href="#">Ma liste de courses</a>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('collapsed');
+    }
+  </script>
+
 </body>
 </html>
